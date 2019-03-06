@@ -24,12 +24,12 @@ public class LogFilter implements CustomFilter
         String[] message = record.getMessage().split("\\s+");
         boolean found = false;
 
-        for(int i = 0; i < message.length; i++)
+        for(int i = 0; i < ignored.size(); i++)
         {
             if(found)
                 break;
 
-            found = ignored.contains(message[i]);
+            found = record.getMessage().toLowerCase().startsWith(ignored.get(i).toLowerCase());
         }
 
         return !(found);
