@@ -21,7 +21,6 @@ public class LogFilter implements CustomFilter
     @Override
     public boolean isLoggable(LogRecord record)
     {
-        String[] message = record.getMessage().split("\\s+");
         boolean found = false;
 
         for(String line : ignored)
