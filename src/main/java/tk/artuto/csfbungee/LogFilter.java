@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class LogFilter implements CustomFilter
 {
-    private final Logger log;
+    private Logger log;
     private Set<String> ignored;
 
     LogFilter(CSF plugin)
@@ -32,6 +32,12 @@ public class LogFilter implements CustomFilter
         }
 
         return !(found);
+    }
+
+    Filter inject(Logger log)
+    {
+        this.log = log;
+        return inject();
     }
 
     @Override
