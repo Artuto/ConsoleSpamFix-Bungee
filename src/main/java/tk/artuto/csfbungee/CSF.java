@@ -22,7 +22,16 @@ public class CSF extends Plugin
         }
 
         getLogger().info("Injecting filters...");
-        try {new LogFilter(this).inject();}
+        try
+        {
+            // Inject filter in proxy logger
+            LogFilter filter = new LogFilter();
+            filter.inject(getProxy().getLogger());
+
+            // Inject filter on every plugins
+            for(Plugin plugin : getProxy().getPluginManager().getPlugins())
+                filter.inject(plugin.getLogger());
+         }
         catch(Exception e)
         {
             getLogger().severe("Could not inject filters: " + e.getMessage());
