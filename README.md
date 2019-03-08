@@ -4,3 +4,5 @@ https://jenkins.artuto.tk/view/Plugins/job/ConsoleSpamFix-Bungee)
 
 # ConsoleSpamFix Bungee
 ConsoleSpamFix for BungeeCord
+
+https://www.spigotmc.org/resources/65471/
